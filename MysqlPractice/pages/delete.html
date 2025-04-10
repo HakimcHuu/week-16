@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Product</title>
+</head>
+<body>
+
+  <h2>Delete Product</h2>
+  <form id="deleteProductForm">
+    <label for="product_id">Product ID:</label>
+    <input type="number" id="product_id" name="product_id" required>
+    <button type="submit">Delete Product</button>
+  </form>
+
+  <script>
+    document.getElementById('deleteProductForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const product_id = document.getElementById('product_id').value;
+
+      fetch(`http://localhost:2024/delete/${product_id}`, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message || 'Product deleted successfully!');
+      })
+      .catch(error => {
+        console.error('Error deleting product:', error);
+        alert('Error deleting product.');
+      });
+    });
+  </script>
+
+</body>
+</html>

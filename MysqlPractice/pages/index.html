@@ -1,0 +1,267 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add iPhone Product</title>
+<link rel="stylesheet" href="./formm.css">
+
+</head>
+<body>
+<div class="form-container">
+    <h2>Add iPhone Product</h2>
+        <form action="http://localhost:2024/addiphones" method="post">
+
+        <label for="product_name">Product Name:*</label>
+        <input type="text" id="product_name" name="product_name" required> -->
+        <!-- <input type="text" name="product_name">
+
+        <label for="product_url">Product URL:</label>
+        <input type="text" id="product_url" name="product_url" required>
+
+        <label for="product_Description">product_Description:</label>
+        <textarea id="text" name="product_Description" rows="5" required></textarea>
+        
+
+        <label for="product_brief_Description">product_brief_Description :</label>
+        <input type="text" name="product_brief_Description"> -->
+        <!-- <input type="text" id="product_brief_Description" name="product_brief_Description" required> -->
+
+        <!-- <label for="product_img">product_img:</label>
+        <input type="text" id="product_img">  -->
+        <!-- <input type="text" id="product_img" name="product_img" accept="image/*" required> -->
+
+        <!-- <label for="product_link">product_link:</label>
+        <input type="text" id="product_link" name="product_link" required>
+
+        <label for="starting_price">starting_price:</label>
+        <input type="text" id="starting_price" name="starting_price" required>
+
+        <label for="price_range">price_range:</label>
+        <input type="text" id="price_range" name="price_range" required>
+
+        <input type="submit" value="Add Product"> -->
+
+
+        <!-- <label for="payment_options">Payment Options:</label>
+        <input type="text" id="payment_options" name="payment_options" required>
+
+        <label for="apple_tv_plus">Apple TV Plus:</label>
+        <input type="text" id="apple_tv_plus" name="apple_tv_plus" required>
+
+        <label for="apple_fitness_plus">Apple Fitness Plus:</label>
+        <input type="text" id="apple_fitness_plus" name="apple_fitness_plus" required>
+
+        <label for="apple_arcade">Apple Arcade:</label>
+        <input type="text" id="apple_arcade" name="apple_arcade" required> -->
+
+    <!-- </form>
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="./form.css">
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Form</title>
+</head>
+<body>
+<div class="container">
+    <h1>Products Information</h1>
+    <form action="http://localhost:2024/addiphones" method="post">
+        <label for="product_name">Product's Name:</label><br>
+        <input type="text" name="product_name" ><br><br>
+        <label for="product_img">Product's image_url:</label><br>
+        <input type="file" name="product_img" ><br><br>
+
+        <label for="image_url">Product's image_url:</label><br>
+        <input type="file" name="image_url" ><br><br>
+
+        <label for="description">Product's description:</label><br>
+        <textarea name="description" rows="3" ></textarea><br>
+        <label for="product_url">Product's url:</label><br>
+        <input type="text" name="product_url" ><br><br>
+        <label for="brief_description">Product's brief description:</label><br>
+        <textarea name="brief_description" rows="5" ></textarea><br>
+        <label for="storage_range">Product's storage range:</label><br>
+        <input type="text" name="storage_range" ><br><br>
+        <label for="price_range">Product's price range:</label><br>
+        <input type="text" name="price_range" ><br><br>
+        <label for="buying_link">Product's buying link:</label><br>
+        <input type="text" name="buying_link" ><br><br>
+        <label for="payment_options">Product's payment options:</label><br>
+        <input type="text" name="payment_options" ><br><br>
+        <h3>Additional Offers</h3>
+        <label for="Apple_TV_plus">AppleTV+:</label><br>
+        <textarea name="Apple_TV_plus" rows="3"></textarea><br>
+        <label for="Apple_Fitness_plus">Apple Fitness+:</label><br>
+        <textarea name="Apple_Fitness_plus" rows="3"></textarea><br>
+        <label for="Apple_Arcade">Apple Arcade:</label><br>
+        <textarea name="Apple_Arcade" rows="3"></textarea><br><br><br>
+        <input class="submit" type="submit" value="Submit">
+    </form>
+    <div id="message"></div>
+</div>
+</body>
+</html> --> 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add iPhone Product</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="file"] {
+      padding: 3px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- <h2>Add iPhone Product</h2>
+      <form action="http://localhost:2024/addiphones" method="POST" enctype="multipart/form-data">
+        <label for="product_name">Product Name:</label><br>
+        <input type="text" id="product_name" name="product_name" required><br><br>
+
+        <label for="product_url">Product URL:</label><br>
+        <input type="text" id="product_url" name="product_url" required><br><br>
+
+        <label for="product_brief_Description">product_brief_Description:</label><br>
+        <textarea id="product_brief_Description" name="product_brief_Description" required></textarea><br><br>
+
+        <label for="product_Description">product_Description:</label><br>
+        <textarea id="product_Description" name="product_Description" required></textarea><br><br>
+
+        <label for="product_img">Product Image:</label><br>
+        <input type="file" id="product_img" name="product_img" accept="image/*" ><br><br>
+
+        <label for="product_link">Product Link:</label><br>
+        <input type="text" id="product_link" name="product_link" required><br><br>
+
+        <label for="starting_price">Starting Price:</label><br>
+        <input type="text" id="starting_price" name="starting_price" required><br><br>
+
+        <label for="price_range">Price Range:</label><br>
+        <input type="text" id="price_range" name="price_range" required><br><br>
+
+        <input type="submit" value="Add Product">
+    </form> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <h2>Add iPhone Product</h2>
+<form action="http://localhost:2024/addiphones" method="POST">
+  <label for="product_name">Product Name:</label><br>
+  <input type="text" id="product_name" name="product_name" required><br><br>
+
+  <label for="product_url">Product URL:</label><br>
+  <input type="text" id="product_url" name="product_url" required><br><br>
+
+  <label for="product_brief_Description">Brief Description:</label><br>
+  <textarea id="product_brief_Description" name="product_brief_Description" required></textarea><br><br>
+
+  <label for="product_Description">Full Description:</label><br>
+  <textarea id="product_Description" name="product_Description" required></textarea><br><br>
+
+  <label for="product_img">Product Image (URL or path):</label><br>
+  <input type="text" id="product_img" name="product_img" required><br><br>
+
+  <label for="product_link">Product Link:</label><br>
+  <input type="text" id="product_link" name="product_link" required><br><br>
+
+  <label for="starting_price">Starting Price:</label><br>
+  <input type="text" id="starting_price" name="starting_price" required><br><br>
+
+  <label for="price_range">Price Range:</label><br>
+  <input type="text" id="price_range" name="price_range" required><br><br>
+
+  <input type="submit" value="Add Product">
+</form>
+
+
+</body>
+</html>

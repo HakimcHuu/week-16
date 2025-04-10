@@ -1,0 +1,127 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Product Information</h1>
+        <form id="update-product-form" enctype="multipart/form-data">
+            <label for="product_id">Product ID:</label><br>
+            <input type="text" name="product_id" ><br><br>
+
+            <label for="product_name">Product's Name:</label><br>
+            <input type="text" name="product_name" ><br><br>
+
+            <label for="image_url">Product's image_url:</label><br>
+            <input type="file" name="image_url"><br><br>
+            <label for="description">Product's description:</label><br>
+            <textarea name="description" rows="3" ></textarea><br>
+            <label for="product_url">Product's url:</label><br>
+            <input type="text" name="product_url" ><br><br>
+            <label for="brief_description">Product's brief description:</label><br>
+            <textarea name="brief_description" rows="5" ></textarea><br>
+            <label for="storage_range">Product's storage range:</label><br>
+            <input type="text" name="storage_range" ><br><br>
+            <label for="price_range">Product's price range:</label><br>
+            <input type="text" name="price_range" ><br><br>
+            <label for="buying_link">Product's buying link:</label><br>
+            <input type="text" name="buying_link" ><br><br>
+            <label for="payment_options">Product's payment options:</label><br>
+            <input type="text" name="payment_options" ><br><br>
+            <h3>Additional Offers</h3>
+            <label for="Apple_TV_plus">AppleTV+:</label><br>
+            <textarea name="Apple_TV_plus" rows="3"></textarea><br>
+            <label for="Apple_Fitness_plus">Apple Fitness+:</label><br>
+            <textarea name="Apple_Fitness_plus" rows="3"></textarea><br>
+            <label for="Apple_Arcade">Apple Arcade:</label><br>
+            <textarea name="Apple_Arcade" rows="3"></textarea><br><br><br>
+            <input class="submit" type="submit" value="Update">
+        </form>
+        <div id="message"></div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Product Information</h1>
+        <form id="update-product-form">
+            <label for="product_id">Product ID:</label>
+            <input type="text" product_id="id" /> <br/><br/>
+        
+            <label for="product_name">New Product Name:</label>
+            <input type="text" product_name="updatedName" />
+        
+            <button type="submit">Update Product</button>
+        </form>
+        <script src="./script.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Product</title>
+</head>
+<body>
+
+  <h2>Update Product</h2>
+  <form id="updateProductForm">
+    <label for="product_id">Product ID:</label>
+    <input type="number" id="product_id" name="product_id" required><br><br>
+
+    <label for="newName">New Product Name:</label>
+    <input type="text" id="newName" name="newName" required><br><br>
+
+    <button type="submit">Update Product</button>
+  </form>
+
+  <script>
+    document.getElementById('updateProductForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const product_id = document.getElementById('product_id').value;
+      const newName = document.getElementById('newName').value;
+
+      fetch('http://localhost:2024/update', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: product_id,
+          newName: newName,
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Product updated successfully!');
+      })
+      .catch(error => {
+        console.error('Error updating product:', error);
+        alert('Error updating product.');
+      });
+    });
+  </script>
+
+</body>
+</html>
