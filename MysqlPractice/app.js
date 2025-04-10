@@ -3,32 +3,52 @@ const mysql = require("mysql2");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+<<<<<<< HEAD
 require("dotenv").config();
+=======
+>>>>>>> 2484d12d5d09d33142d3be3e4b0ce404e7377afc
 
 // Create an Express app
 const app = express();
 
 // Set up CORS options
+<<<<<<< HEAD
 // const optionalUseOfCors = {
 //   origin: ["http://localhost:3000"],
 // };
+=======
+const optionalUseOfCors = {
+  origin: ["http://localhost:3000"],
+};
+>>>>>>> 2484d12d5d09d33142d3be3e4b0ce404e7377afc
 
 // Use middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
+<<<<<<< HEAD
 // app.use(cors(optionalUseOfCors));
 app.use(cors());
+=======
+app.use(cors(optionalUseOfCors));
+>>>>>>> 2484d12d5d09d33142d3be3e4b0ce404e7377afc
 
 // Start server
 app.listen(2024, () => console.log("Server listening on port 2024"));
 
 // MySQL connection
 const Connection = mysql.createConnection({
+<<<<<<< HEAD
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+=======
+  host: "11111111111",
+  user: "yoooooooo",
+  password: "yooooo",
+  database: "yooooo",
+>>>>>>> 2484d12d5d09d33142d3be3e4b0ce404e7377afc
 });
 
 // Connect to MySQL
@@ -177,6 +197,7 @@ app.post("/addiphones", (req, res) => {
       (product_id, starting_price, price_range)
       VALUES (?, ?, ?)`;
 
+<<<<<<< HEAD
     Connection.query(
       insertProduct,
       [product_name, product_url],
@@ -234,6 +255,54 @@ app.post("/addiphones", (req, res) => {
         );
       }
     );
+=======
+
+    Connection.query(insertProduct, [product_name, product_url], (err, result) => {
+      if (err) {
+        return Connection.rollback(() => {
+          console.error("Insert Product Error:", err);
+          res.status(500).send("Insert Product Failed");
+        });
+      }
+
+      const product_id = result.insertId;
+
+      Connection.query(insertDescription, [
+        product_id,
+        product_brief_Description,
+        product_Description,
+        product_img,
+        product_link,
+      ], (err) => {
+        if (err) {
+          return Connection.rollback(() => {
+            console.error("Insert Description Error:", err);
+            res.status(500).send("Insert Description Failed");
+          });
+        }
+
+        Connection.query(insertPrice, [product_id, starting_price, price_range], (err) => {
+          if (err) {
+            return Connection.rollback(() => {
+              console.error("Insert Price Error:", err);
+              res.status(500).send("Insert Price Failed");
+            });
+          }
+
+          Connection.commit((err) => {
+            if (err) {
+              return Connection.rollback(() => {
+                console.error("Commit Error:", err);
+                res.status(500).send("Commit Failed");
+              });
+            }
+
+            res.send("Product added successfully");
+          });
+        });
+      });
+    });
+>>>>>>> 2484d12d5d09d33142d3be3e4b0ce404e7377afc
   });
 });
 
@@ -290,6 +359,7 @@ app.put("/update", (req, res) => {
     res.send(result);
   });
 });
+<<<<<<< HEAD
 
 
 
@@ -1019,3 +1089,5 @@ app.put("/update", (req, res) => {
 //     res.send(result);
 //   });
 // });
+=======
+>>>>>>> 2484d12d5d09d33142d3be3e4b0ce404e7377afc
