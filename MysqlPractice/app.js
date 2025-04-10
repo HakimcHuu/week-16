@@ -9,15 +9,18 @@ require("dotenv").config();
 const app = express();
 
 // Set up CORS options
-const optionalUseOfCors = {
-  origin: ["http://localhost:3000"],
-};
+// const optionalUseOfCors = {
+//   origin: ["http://localhost:3000"],
+// };
 
 // Use middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(optionalUseOfCors));
+// app.use(cors(optionalUseOfCors));
+app.use(cors());
+
+
 
 // Start server
 app.listen(2024, () => console.log("Server listening on port 2024"));
