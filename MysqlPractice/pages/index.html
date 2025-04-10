@@ -261,6 +261,42 @@
 
   <input type="submit" value="Add Product">
 </form>
+  
+    <div id="message"></div>
+  
+    <script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const productData = {
+      product_name: document.getElementById('product_name').value,
+      product_url: document.getElementById('product_url').value,
+      product_brief_Description: document.getElementById('product_brief_Description').value,
+      product_Description: document.getElementById('product_Description').value,
+      product_img: document.getElementById('product_img').value,
+      product_link: document.getElementById('product_link').value,
+      starting_price: document.getElementById('starting_price').value,
+      price_range: document.getElementById('price_range').value,
+    };
+
+    fetch('http://localhost:2024/addiphones', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(productData),
+    })
+    .then(response => response.text()) // In case response is plain text
+    .then(text => {
+      alert(text || 'Product added successfully!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error adding product.');
+    });
+  });
+</script>
+
 
 
 </body>
