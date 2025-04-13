@@ -1,0 +1,137 @@
+<!-- This HTML file is designed to fetch and display a list of products from a local server using JavaScript. It includes a button to load the products, a table to display them, and basic styling for better presentation. The script fetches data from a specified endpoint and handles errors gracefully. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List in Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      button {
+        display: block;
+        margin: 0 auto 2rem auto;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+
+      img {
+        max-width: 100px;
+        height: auto;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Product List</h1>
+    <button onclick="loadProducts()">Load Products</button>
+
+    <div id="product-container"></div>
+
+    <script>
+      function loadProducts() {
+        const container = document.getElementById("product-container");
+        container.innerHTML = "Loading...";
+
+        fetch("http://localhost:2024/products")
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Fetched Products:", data); // ✅ Log to console
+
+            if (!Array.isArray(data) || data.length === 0) {
+              container.innerHTML = "No products found.";
+              return;
+            }
+
+            let tableHTML = `
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Brief</th>
+                  <th>Description</th>
+                  <th>Image</th>
+                  <th>Starting Price</th>
+                  <th>Price Range</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody>
+          `;
+
+            data.forEach((product) => {
+              tableHTML += `
+              <tr>
+                <td>${product.product_id}</td>
+                <td>${product.product_name}</td>
+                <td>${product.product_brief_description}</td>
+                <td>${product.product_description}</td>
+                <td><img src="${product.product_img}" alt="Image" /></td>
+                <td>${product.starting_price}</td>
+                <td>${product.price_range}</td>
+                <td><a href="${product.product_link}" target="_blank">Buy</a></td>
+              </tr>
+            `;
+            });
+
+            tableHTML += `
+              </tbody>
+            </table>
+          `;
+
+            container.innerHTML = tableHTML;
+          })
+          .catch((error) => {
+            console.error("Error loading products:", error);
+            container.innerHTML = "Failed to load products.";
+          });
+      }
+    </script>
+  </body>
+</html>
